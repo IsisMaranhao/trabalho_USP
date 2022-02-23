@@ -1,0 +1,371 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\title{PIXAR}
+\author{Isis Maranhão}
+\date{22/02/2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={PIXAR},
+  pdfauthor={Isis Maranhão},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+\maketitle
+
+\hypertarget{introduuxe7uxe3o}{%
+\section{\texorpdfstring{\textbf{Introdução}:}{Introdução:}}\label{introduuxe7uxe3o}}
+
+\emph{Pixar Animation Studios}, conhecida mundialmente como Pixar, foi
+fundada em 03 de fevereiro de 1986.
+
+Inicialmente, o estúdio era uma divisão da Lucasfilm. Recebeu o
+financiamento do co-fundador da Apple, Steve Jobs, que se tornou seu
+acionista majoritário. Algumas referência dizem que o começo de sua
+história está igualmente relacionado a um clipe animado de uma mão
+esquerda, a um dos criadores da Apple, e claro, à própria The Walt
+Disney Company.
+
+Para quem tiver a mesma curiosidade, esse é o link para o vídeo referido
+acima. Está disponível no youtube.
+
+\href{https://www.youtube.com/watch?v=wdedV81UQ5k\&t=22s}{Vídeo:
+https://www.youtube.com/watch?v=wdedV81UQ5k\&t=22s}
+
+A Walt Disney anunciou em 2006 a aquisição da Pixar Animation Studios
+por US\$ 7,4 bilhões em ações. Esse negócio buscava restaurar a
+importância da Disney no segmento de animação infantil e levar Steve
+Jobs, presidente da Pixar e da Apple da época, a uma posição de destaque
+na Disney.
+
+\hypertarget{luxo-jr.}{%
+\subsection{Luxo Jr.}\label{luxo-jr.}}
+
+\emph{Não sabe nada sobre Luxo jr?}
+
+\begin{figure}
+\centering
+\includegraphics{https://i1.wp.com/cinemaepixels.com.br/wp-content/uploads/2018/10/luxo-jr-anima\%C3\%A7\%C3\%A3o-pixar.jpg}
+\caption{Luxo Jr.}
+\end{figure}
+
+Luxo Jr.~foi a segunda curta-metragem produzida pela Pixar Animation
+Studios. Foi um filme de curta-metragem de animação feito com computação
+gráfica em 1986.
+
+Ele pode ser visto esmagando o ``I'' da Pixar no início de cada filme
+produzido pelo estúdio de animação.
+
+\begin{figure}
+\centering
+\includegraphics{https://br.web.img2.acsta.net/c_310_420/medias/nmedia/18/92/03/98/20176570.jpg}
+\caption{Luxo Jr.: outubro de 2021}
+\end{figure}
+
+No link abaixo você pode ver o vídeo mais atual desse curta no
+\emph{Youtube}.
+
+\url{https://www.youtube.com/watch?v=FI0T0Oj7WFE}
+
+\hypertarget{as-premiauxe7uxf5es-de-luxo-jr.}{%
+\subsubsection{As premiações de Luxo
+Jr.~}\label{as-premiauxe7uxf5es-de-luxo-jr.}}
+
+E brilhante o quanto esse curta pode mostrar que é possível passar
+sentimentos através de uma animação em 3D, mesmo se o personagem for uma
+lâmpada.
+
+Por conta desse extraordinário feito recebeu os seguintes prêmios e
+indicações:
+
+O Luxo Jr.~não ficou só nesse curta, ele também protagonizou mais
+curtas-metragens de animação feitos com computação gráfica em 1990 pela
+Pixar Animation Studios. São eles:
+
+\begin{itemize}
+\tightlist
+\item
+  Leve e Pesado (Light \& Heavy)
+\item
+  Surpresa (Surprise)
+\item
+  Em Cima e em Baixo (Up and Down)
+\item
+  Em Frente e Atrás (Front and Back)
+\end{itemize}
+
+\textbf{PRÊMIOS DO FILME LUXO JR.}
+
+id
+
+ANO
+
+PRÊMIO
+
+CATEGORIA
+
+RESULTADO
+
+{1}
+
+1986
+
+Oscar
+
+Melhor Curta Animado
+
+Apenas indicado
+
+{2}
+
+1987
+
+Festival Internacional de Filmes em Berlin
+
+Melhor Filme de Curta-metragem
+
+Ganhou
+
+{3}
+
+1987
+
+Festival Internacional de Animação em Ottawa
+
+Melhor filme com menos de 5 minutos
+
+Ganhou em 2° lugar
+
+{4}
+
+1987
+
+Celebração Mundial de Animação
+
+Animação Assistida de Computador
+
+Ganhou
+
+\hypertarget{dados-da-pixar}{%
+\section{\texorpdfstring{\textbf{Dados da
+Pixar}:}{Dados da Pixar:}}\label{dados-da-pixar}}
+
+Usando os dados dispóníveis no \emph{pacote dados} que foram traduzidos
+e disponibilizados numa versão em português.
+
+\href{https://cienciadedatos.github.io/dados/}{Dados: Filmes Pixar}
+
+É fato que a empresa é refênrencia quando estamos falando sobre filmes
+de animação. A quatidade de prêmios que a \textbf{PIXAR} ganhou, com os
+seus filmes mais conhecidos pelo grande público, estão no gráfico
+abaixo.
+
+\includegraphics{PIXAR_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+Mas para fazer uma análise da significância dos números dessa empresa,
+vamos usar os dados da tabela abaixo, onde podemos associar os números
+de outros prêmios importantes do mundo do cinema com os valores
+imponentes dos orçamentos e bilheteria mundial de cada filme.\^{}
+
+Olhando para a base de dados acima, podemos usar a \emph{função do R:
+summary()}. Essa função calcula um resumo estatístico dos dados e
+objetos de uma base de dados.
+
+\begin{verbatim}
+##     filme           nota_rotten_tomatoes nota_metacritic bilheteria_mundial 
+##  Length:23          Min.   : 40.00       Min.   :57.00   Min.   :1.354e+08  
+##  Class :character   1st Qu.: 84.00       1st Qu.:71.00   1st Qu.:4.230e+08  
+##  Mode  :character   Median : 96.00       Median :81.00   Median :6.237e+08  
+##                     Mean   : 89.17       Mean   :79.96   Mean   :6.358e+08  
+##                     3rd Qu.: 97.50       3rd Qu.:90.00   3rd Qu.:8.323e+08  
+##                     Max.   :100.00       Max.   :96.00   Max.   :1.243e+09  
+##    orcamento        
+##  Min.   : 30000000  
+##  1st Qu.:120000000  
+##  Median :175000000  
+##  Mean   :156565217  
+##  3rd Qu.:192500000  
+##  Max.   :200000000
+\end{verbatim}
+
+Como uma forma simples de aplicar matemática nos dados da \emph{PIXAR},
+vamos aplicar um modelo de regressão linear para avaliar a relação entre
+as duas vaiáveis quantititivas, no nosso caso, bilheteria\_mundial e
+orcamento dos filmes.
+
+Sem entrar muito na teoria matemática, queremos encontrar um modelo que
+descreva a seguinte exressão
+
+\[
+y = a + bx
+\]
+
+Abaixo é possível ver os resultados da \emph{função do R: summary()} ao
+resultado. Nesse resultado tem vários pontos inportantes
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = bilheteria_mundial ~ orcamento, data = selecao_1)
+## 
+## Residuals:
+##        Min         1Q     Median         3Q        Max 
+## -539565806 -166309089    6823841  157837088  514654078 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)
+## (Intercept) 3.030e+08  2.123e+08   1.427    0.168
+## orcamento   2.126e+00  1.302e+00   1.633    0.117
+## 
+## Residual standard error: 285300000 on 21 degrees of freedom
+## Multiple R-squared:  0.1127, Adjusted R-squared:  0.07046 
+## F-statistic: 2.668 on 1 and 21 DF,  p-value: 0.1173
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{R2 }\OtherTok{\textless{}{-}}\NormalTok{ (}\FunctionTok{sum}\NormalTok{((selecao\_1}\SpecialCharTok{$}\NormalTok{yhat }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(selecao\_1}\SpecialCharTok{$}\NormalTok{orcamento))}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{))}\SpecialCharTok{/}
+\NormalTok{  ((}\FunctionTok{sum}\NormalTok{((selecao\_1}\SpecialCharTok{$}\NormalTok{yhat }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(selecao\_1}\SpecialCharTok{$}\NormalTok{orcamento))}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)) }\SpecialCharTok{+}\NormalTok{ (}\FunctionTok{sum}\NormalTok{((selecao\_1}\SpecialCharTok{$}\NormalTok{erro)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)))}
+
+\FunctionTok{round}\NormalTok{(R2, }\AttributeTok{digits =} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.7629
+\end{verbatim}
+
+Para quem não entende muito bem a matemática que estamos trabalhando, um
+R² = 0.7629 significa que o modelo linear explica 76,29\% da variância
+da variável dependente a partir do regressores (variáveis independentes)
+incluídas naquele modelo linear.
+
+\includegraphics{PIXAR_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+O Teste de Shapiro-Wilk tem como objetivo avaliar se uma distribuição é
+semelhante a uma distribuição normal.
+
+Como resultado, o teste retornará a estatística W, que terá um valor de
+significância associada, o valor-p.~Para dizer que uma distribuição é
+normal, o valor p precisa ser maior do que 0,05.
+
+\begin{verbatim}
+## 
+##  Shapiro-Francia normality test
+## 
+## data:  modelo_filme$residuals
+## W = 0.98036, p-value = 0.8444
+\end{verbatim}
+
+\end{document}

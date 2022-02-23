@@ -1,0 +1,316 @@
+---
+title: "PIXAR"
+author: "Isis Maranhão"
+date: "22/02/2022"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE, echo=FALSE}
+
+install.packages("remotes")
+remotes::install_github("cienciadedatos/dados")
+
+library(rmarkdown)
+library(ggplot2)
+library(dados)
+library(dplyr)
+library(kableExtra)
+library(tidyverse)
+library(formattable)
+library(knitr)
+```
+
+# **Introdução**:
+
+*Pixar Animation Studios*, conhecida mundialmente como Pixar, foi fundada em 03 de fevereiro de 1986. 
+
+Inicialmente, o estúdio era uma divisão da Lucasfilm. Recebeu o financiamento do co-fundador da Apple, Steve Jobs, que se tornou seu acionista majoritário. Algumas referência dizem que o começo de sua história está igualmente relacionado a um clipe animado de uma mão esquerda, a um dos criadores da Apple, e claro, à própria The Walt Disney Company.
+
+
+Para quem tiver a mesma curiosidade, esse é o link para o vídeo referido acima. Está disponível no youtube.
+
+
+[Vídeo: https://www.youtube.com/watch?v=wdedV81UQ5k&t=22s ](https://www.youtube.com/watch?v=wdedV81UQ5k&t=22s)
+
+
+A Walt Disney anunciou em 2006 a aquisição da Pixar Animation Studios por US$ 7,4 bilhões em ações. Esse negócio buscava restaurar a importância da Disney no segmento de animação infantil e levar Steve Jobs, presidente da Pixar e da Apple da época, a uma posição de destaque na Disney. 
+
+
+```{r eval=FALSE, include=FALSE}
+
+# https://www1.folha.uol.com.br/fsp/dinheiro/fi2501200627.htm#:~:text=Folha%20de%20S.,bi%20%2D%2025%2F01%2F2006
+
+# Referências:
+
+# https://www1.folha.uol.com.br/fsp/dinheiro/fi2501200627.htm#
+
+# https://www.ocamundongo.com.br/origem-da-pixar/
+
+# https://observatoriodocinema.uol.com.br/listas/2021/06/as-referencias-da-disney-e-pixar-em-luca#:~:text=com%20muita%20for%C3%A7a.-,Luxo%20Jr.,produzido%20pelo%20est%C3%BAdio%20de%20anima%C3%A7%C3%A3o.
+
+# https://exame.com/negocios/n0080392/
+
+```
+
+
+## Luxo Jr.
+
+
+*Não sabe nada sobre Luxo jr?*
+
+
+![Luxo Jr.](https://i1.wp.com/cinemaepixels.com.br/wp-content/uploads/2018/10/luxo-jr-anima%C3%A7%C3%A3o-pixar.jpg)
+
+
+Luxo Jr. foi a segunda curta-metragem produzida pela Pixar Animation Studios. Foi um filme de curta-metragem de animação feito com computação gráfica em 1986. 
+
+
+Ele pode ser visto esmagando o “I” da Pixar no início de cada filme produzido pelo estúdio de animação.
+
+
+![Luxo Jr.: outubro de 2021 ](https://br.web.img2.acsta.net/c_310_420/medias/nmedia/18/92/03/98/20176570.jpg)
+
+No link abaixo você pode ver o vídeo mais atual desse curta no *Youtube*.
+
+
+[https://www.youtube.com/watch?v=FI0T0Oj7WFE ](https://www.youtube.com/watch?v=FI0T0Oj7WFE)
+
+
+### As premiações de Luxo Jr. 
+
+
+E brilhante o quanto esse curta pode mostrar que é possível passar sentimentos através de uma animação em 3D, mesmo se o personagem for uma lâmpada. 
+
+
+Por conta desse extraordinário feito recebeu os seguintes prêmios e indicações: 
+
+```{r include=FALSE}
+
+df <- data.frame(
+  id = 1:4,
+  ANO = c('1986', '1987', '1987', '1987'),
+  PRÊMIO = c('Oscar', 'Festival Internacional de Filmes em Berlin', 'Festival Internacional de Animação em Ottawa', 'Celebração Mundial de Animação'),
+  CATEGORIA = c('Melhor Curta Animado', 'Melhor Filme de Curta-metragem', 'Melhor filme com menos de 5 minutos', 'Animação Assistida de Computador'),
+  RESULTADO = c('Apenas indicado', 'Ganhou', 'Ganhou em 2° lugar', 'Ganhou')
+)
+
+```
+
+
+O Luxo Jr. não ficou só nesse curta, ele também protagonizou mais curtas-metragens de animação feitos com computação gráfica em 1990 pela Pixar Animation Studios. São eles:
+
+
+  - Leve e Pesado (Light & Heavy)
+  - Surpresa (Surprise)
+  - Em Cima e em Baixo (Up and Down)
+  - Em Frente e Atrás (Front and Back)
+
+
+**PRÊMIOS DO FILME LUXO JR.**
+
+
+```{r echo=FALSE}
+
+formattable(df, list(
+  id = color_tile("white", "orange"),
+  Suficiente = formatter("span", style = x ~ ifelse(x == T, 
+                                               style(color = "green", font.weight = "bold"), NA))
+))
+
+```
+
+
+# **Dados da Pixar**:
+
+Usando os dados dispóníveis no *pacote dados* que foram traduzidos e disponibilizados numa versão em português.
+
+
+[Dados: Filmes Pixar](https://cienciadedatos.github.io/dados/)
+
+
+```{r echo=FALSE}
+
+oscar <- dados::pixar_oscars
+bilheteria <- dados::pixar_bilheteria
+avaliacao <- dados::pixar_avalicao_publico
+
+```
+
+
+```{r echo=FALSE}
+
+quant_oscar <- oscar |>
+  dplyr::count(filme, sort = TRUE) |>
+  janitor::adorn_totals()
+
+```
+
+
+É fato que a empresa é refênrencia quando estamos falando sobre filmes de animação. A quatidade de prêmios que a **PIXAR** ganhou, com os seus filmes mais conhecidos pelo grande público, estão no gráfico abaixo.
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+
+quant_oscar |>
+  dplyr::rename("Filmes PIXAR" = filme, "Números de Oscars" = n) |>
+  knitr::kable() |>
+  kableExtra::kable_styling(full_width = FALSE)
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+quant_oscar.novo <- quant_oscar[-24,]
+```
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+ggplot(quant_oscar.novo, aes(y = filme, x = n, fill = filme)) + 
+  xlab("NÚMERO DE OSCARS") + ylab("FILMES") +
+  geom_col(stat = "identity", show.legend = FALSE, width = .5)
+
+```
+
+
+Mas para fazer uma análise da significância dos números dessa empresa, vamos usar os dados da tabela abaixo, onde podemos associar os números de outros prêmios importantes do mundo do cinema com os valores imponentes dos orçamentos e bilheteria mundial de cada filme.^
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+base_juntas <- inner_join(avaliacao, bilheteria,
+                            by = "filme")
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+
+base_juntas.novo <- base_juntas[-24,]
+
+str(base_juntas.novo)
+names(base_juntas.novo)
+
+selecao_1 <- base_juntas.novo[,c("filme","nota_rotten_tomatoes","nota_metacritic", "bilheteria_mundial", "orcamento")]
+
+```
+
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+
+selecao_1 |>
+  dplyr::rename("FILMES PIXAR" = filme, 
+                "TOMATE DE OURO" = nota_rotten_tomatoes,
+                "CRÍTICOS" = nota_metacritic, 
+                "BILHETERIA MUNDIAL" = bilheteria_mundial,  
+                "ORÇAMENTO" = orcamento) |>
+  knitr::kable() |>
+  kableExtra::kable_styling(full_width = FALSE)
+
+```
+
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+
+glimpse(selecao_1) 
+
+```
+
+
+Olhando para a base de dados acima, podemos usar a *função do R: summary()*. Essa função calcula um resumo estatístico dos dados e objetos de uma base de dados.
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+summary(selecao_1)
+
+```
+
+
+Como uma forma simples de aplicar matemática nos dados da *PIXAR*, vamos aplicar um modelo de regressão linear para avaliar a relação entre as duas vaiáveis quantititivas, no nosso caso, bilheteria_mundial e orcamento dos filmes.
+
+
+Sem entrar muito na teoria matemática, queremos encontrar um modelo que descreva a seguinte exressão
+
+$$
+y = a + bx
+$$
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+modelo_filme <- lm(formula = bilheteria_mundial ~ orcamento,
+                   data = selecao_1)
+
+```
+
+
+
+Abaixo é possível ver os resultados da *função do R: summary()* ao resultado. Nesse resultado tem vários pontos inportantes
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+summary(modelo_filme)
+
+```
+
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+
+selecao_1$yhat <- modelo_filme$fitted.values
+selecao_1$erro <- modelo_filme$residuals
+
+```
+
+
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+
+R2 <- (sum((selecao_1$yhat - mean(selecao_1$orcamento))^2))/
+  ((sum((selecao_1$yhat - mean(selecao_1$orcamento))^2)) + (sum((selecao_1$erro)^2)))
+
+round(R2, digits = 4)
+
+```
+
+
+Para quem não entende muito bem a matemática que estamos trabalhando, um R² = 0.7629 significa que o modelo linear explica 76,29% da variância da variável dependente a partir do regressores (variáveis independentes) incluídas naquele modelo linear.
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+ggplot(selecao_1, aes(x = bilheteria_mundial, y = orcamento)) +
+  geom_point(color = "#39568CFF") +
+  geom_smooth(aes(color = "Fitted Values"),
+              method = "lm", 
+              level =  0.80,) +
+  labs(x = "Bilheteria Mundial", y = "Orçamento") +
+  scale_color_manual("Legenda:", values = "grey50") +
+  theme_bw()
+
+```
+
+A regressão linear encontra a linha que melhor representa as variáveis de entrada com a variável de saída. É imaginar que o resultado *ótimo* entre o que se **arrecada na bilheteria** e o que foi **gasto para criar o filme** está na reta apresentada no gráfico acima.
+
+
+O Teste de Shapiro-Wilk tem como objetivo avaliar se uma distribuição é semelhante a uma distribuição normal. 
+
+
+Como resultado, o teste retornará a estatística W, que terá um valor de significância associada, o valor-p. Para dizer que uma distribuição é normal, o valor p precisa ser maior do que 0,05.
+
+
+```{r echo=FALSE}
+
+#install.packages('nortest')
+library(nortest)
+sf.test(modelo_filme$residuals)
+
+```
+

@@ -1,19 +1,19 @@
 # TRABALHO PARA O CURSO - BASE DE DADOS PIXAR:
 
-#install.packages("remotes")
-#remotes::install_github("cienciadedatos/dados")
+install.packages("remotes")
+remotes::install_github("cienciadedatos/dados")
 
-install.packages("ggplot2")
-install.packages("dplyr")
-install.packages("hms")
-install.packages("kableExtra", dependencies = TRUE)
-install.packages("tidyverse")
+#install.packages("ggplot2")
+#install.packages("dplyr")
+#install.packages("hms")
+#install.packages("kableExtra", dependencies = TRUE)
+#install.packages("tidyverse")
 library(ggplot2)
 library(dados)
 library(dplyr)
 library(kableExtra)
 library(tidyverse)
-
+library(formattable)
 
 # academy - Filmes da Pixar com indicações ao Oscar
 # box_office - Bilheteria dos filmes da Pixar
@@ -31,7 +31,6 @@ avaliacao <- dados::pixar_avalicao_publico
 #generos <- dados::pixar_generos
 #filmes <- dados::pixar_filmes
 #equipe <- dados::pixar_equipe
-
 
 # Contando dados de um banco de dados:
 
